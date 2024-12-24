@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --christmas-red: #d42426;
+    --christmas-green: #165b33;
+    --christmas-gold: #ffd700;
+    --snow-white: #f8f9fa;
+}
+
+body {
+    background: linear-gradient(135deg, #1b4d3e, #0f2027);
+    color: var(--snow-white);
+    min-height: 100vh;
+    position: relative;
+}
+
+.christmas-tree {
+    position: fixed;
+    font-size: 2rem;
+    color: var(--christmas-green);
+    text-shadow: 0 0 5px var(--christmas-gold);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.snowflake {
+    position: fixed;
+    color: var(--snow-white);
+    font-size: 1em;
+    animation: fall linear forwards;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+nav {
+    background: rgba(22, 91, 51, 0.95);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--christmas-gold);
+}
+
+.nav-links {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--snow-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '🎄';
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    opacity: 1;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--christmas-red);
+    color: white;
+    box-shadow: 0 4px 15px rgba(212, 36, 38, 0.3);
+}
+
+.btn-secondary {
+    background: var(--christmas-gold);
+    color: var(--christmas-green);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+    padding: 6rem 0;
+    /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)); */
+    background-image: url("https://ulysseus.eu/wp-content/uploads/2023/02/Women-in-Science-1200x800_sin-texto.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--christmas-gold);
+}
+
+.hero::before {
+    content: '🎄';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+}
+
+.hero::after {
+    content: '🎄';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+}
+
+.section {
+    background: rgba(22, 91, 51, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 1px solid var(--christmas-gold);
+    position: relative;
+}
+
+.section::before {
+    content: '🎅';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.event-card {
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,215,0,0.3);
+    backdrop-filter: blur(5px);
+}
+
+.event-card:hover {
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    border-color: var(--christmas-gold);
+}
+
+.new-year-banner {
+    background: linear-gradient(45deg, var(--christmas-red), var(--christmas-green));
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    animation: glow 2s infinite alternate;
+    border: 2px solid var(--christmas-gold);
+    position: relative;
+}
+
+.new-year-banner::before, .new-year-banner::after {
+    content: '✨';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.new-year-banner::before { left: 20px; }
+.new-year-banner::after { right: 20px; }
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--christmas-gold);
+    }
+    to {
+        box-shadow: 0 0 20px var(--christmas-gold);
+    }
+}
+
+footer {
+    background: rgba(22, 91, 51, 0.95);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    border-top: 2px solid var(--christmas-gold);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--christmas-red),
+        var(--christmas-red) 10px,
+        var(--christmas-green) 10px,
+        var(--christmas-green) 20px
+    );
+}
+
+h2 {
+    color: var(--christmas-gold);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.section h3 {
+    color: var(--christmas-gold);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
